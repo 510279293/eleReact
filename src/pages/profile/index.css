@@ -1,0 +1,197 @@
+.no-wrap {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+}
+.extend-click {
+  position: relative;
+}
+.extend-click:before {
+  content: '' !important;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+}
+.clearfix {
+  display: inline-block;
+}
+.clearfix:after {
+  display: block;
+  content: '' !important;
+  height: 0;
+  line-height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.position-full {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.root {
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+}
+.root .profile-info {
+  width: 100%;
+  height: 200px;
+  box-sizing: border-box;
+  padding: 10px 50px 30px;
+  background-image: linear-gradient(-90deg, #0085ff, #0af);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.root .profile-info .icon-right {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  color: #fff;
+}
+.root .profile-info .avatar {
+  flex: 0 0 120px;
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+  background-color: #fff;
+  overflow: hidden;
+  position: relative;
+  color: #dcdcdc;
+  font-size: 120px;
+}
+.root .profile-info .avatar .icon {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -8px;
+}
+.root .profile-info .avatar .img {
+  width: 120px;
+  height: 120px;
+  content: none !important;
+}
+.root .profile-info .desc {
+  flex: 1;
+  margin-left: 36px;
+}
+.root .profile-info .desc .info {
+  font-size: 44px;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.root .profile-info .desc .text {
+  font-size: 0;
+}
+.root .profile-info .desc .text .icon,
+.root .profile-info .desc .text span {
+  display: inline-block;
+  vertical-align: bottom;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 300;
+}
+.root .profile-info .desc .text .icon {
+  font-size: 28px;
+}
+.root .column {
+  width: 100%;
+  height: 160px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+  display: flex;
+}
+.root .column .item {
+  flex: 1;
+  border-right: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.root .column .item:last-child {
+  border-right: none;
+}
+.root .column .item .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 44px;
+  border-radius: 100%;
+  margin-bottom: 10px;
+}
+.root .column .item .count {
+  font-size: 44px;
+  margin-bottom: 10px;
+}
+.root .column .item .count.blue {
+  color: #0098fb;
+}
+.root .column .item .count.red {
+  color: #ff5f3e;
+}
+.root .column .item .count.green {
+  color: #6ac20b;
+}
+.root .column .item .count .unit {
+  margin-left: 6px;
+  font-size: 28px;
+}
+.root .column .item .desc {
+  font-size: 24px;
+  color: #666;
+}
+.root .list {
+  background-color: #fff;
+  border-top: 1px solid #eee;
+}
+.root .list:last-child {
+  border-bottom: 1px solid #eee;
+}
+.root .list .item {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88px;
+  position: relative;
+}
+.root .list .item .icon {
+  flex: 0 0 88px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44px;
+}
+.root .list .item .desc {
+  flex: 1;
+  height: 88px;
+  line-height: 88px;
+  font-size: 28px;
+}
+.root .list .item .icon-right {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  color: #666;
+}
