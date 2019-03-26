@@ -9,6 +9,7 @@ const Home = asyncLoad(() => import('./home/index.js'), <Loading />)
 const Compass = asyncLoad(() => import('./compass/index.js'), <Loading />)
 const Order = asyncLoad(() => import('./order'), <Loading />)
 const Profile = asyncLoad(() => import('./profile'), <Loading />)
+const Login = asyncLoad(() => import('./login'), <Loading />)
 const SearchAddress = asyncLoad(() => import('./address-nearby'), <Loading />)
 @connect(() => ({}), dispatch => bindActionCreators({
   globalUpdate
@@ -42,6 +43,7 @@ export default () => (
       <Route path="/compass" component={Compass} />
       <Route path="/order" component={Order} />
       <Route path="/profile" component={Profile} />
+      <Route path="/login" component={Login} />
       <Route path="/search-address" component={SearchAddress} />
     </Switch>
   </Fragment>

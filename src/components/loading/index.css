@@ -1,0 +1,14 @@
+.loading {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading .desc {
+  line-height: 20px;
+  font-size: 24px;
+  font-weight: 300;
+  color: #666;
+  padding-left: 8px;
+}
