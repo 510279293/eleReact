@@ -5,10 +5,11 @@ import styles from './index.less'
 
 @withTabBar
 export default class Order extends PureComponent {
-  render () {
-    return(
+  render() {
+    const { history } = this.props
+    return (
       <div className={styles.order}>
-         <NavBar title="订单" iconLeft="#back" />
+        <NavBar title="订单" iconLeft="#back" leftClick={() => history.goBack()} />
       </div>
     )
   }

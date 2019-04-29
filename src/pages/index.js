@@ -5,14 +5,17 @@ import asyncLoad from 'components/async-loade.js'
 import Loading from './common-components/lazy-loading/index.js'
 import { bindActionCreators } from 'redux'
 import { globalUpdate } from '../stores/global'
+
 const Home = asyncLoad(() => import('./home/index.js'), <Loading />)
 const Compass = asyncLoad(() => import('./compass/index.js'), <Loading />)
 const Order = asyncLoad(() => import('./order'), <Loading />)
 const Profile = asyncLoad(() => import('./profile'), <Loading />)
 const Login = asyncLoad(() => import('./login'), <Loading />)
 const SearchAddress = asyncLoad(() => import('./address-nearby'), <Loading />)
+const Address = asyncLoad(() => import('./address'), <Loading />)
+
 @connect(() => ({}), dispatch => bindActionCreators({
-  globalUpdate
+  globalUpdate,
 }, dispatch))
 class AuthComponent extends Component {
   async componentDidMount() {
@@ -45,6 +48,7 @@ export default () => (
       <Route path="/profile" component={Profile} />
       <Route path="/login" component={Login} />
       <Route path="/search-address" component={SearchAddress} />
+      <Route path="/address" component={Address} />
     </Switch>
   </Fragment>
 )

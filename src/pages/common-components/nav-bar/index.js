@@ -5,10 +5,10 @@ import SvgIcon from 'components/icon-svg'
 import styles from './index.less'
 
 export default class NavBar extends PureComponent {
-  constructor(){
+  constructor() {
     super()
     this.state = {
-      title: 'navbar'
+      title: 'navbar',
     }
   }
   static proptypes = {
@@ -17,7 +17,7 @@ export default class NavBar extends PureComponent {
     leftClick: Proptypes.func,
     rightClick: Proptypes.func,
     title: Proptypes.string,
-    className: Proptypes.string
+    className: Proptypes.string,
   }
 
   static defaultProps = {
@@ -25,7 +25,7 @@ export default class NavBar extends PureComponent {
     iconRight: '',
     leftClick: () => {},
     rightClick: () => {},
-    title: ''
+    title: '',
   }
   render() {
     const {
@@ -36,7 +36,7 @@ export default class NavBar extends PureComponent {
       title,
       className,
     } = this.props
-    return(
+    return (
       <div className={cls(styles.nav, className)}>
         {
           iconLeft ? (

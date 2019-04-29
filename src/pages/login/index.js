@@ -1,5 +1,3 @@
-
-
 import React from 'react'
 import SvgIcon from 'components/icon-svg'
 import Toast from 'components/toast'
@@ -47,7 +45,6 @@ export default class Login extends React.Component {
         captcha_hash,
         captcha_value,
       })
-
       let count = 60
       this.setState({
         time: count,
