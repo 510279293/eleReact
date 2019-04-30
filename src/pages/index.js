@@ -13,6 +13,8 @@ const Profile = asyncLoad(() => import('./profile'), <Loading />)
 const Login = asyncLoad(() => import('./login'), <Loading />)
 const SearchAddress = asyncLoad(() => import('./address-nearby'), <Loading />)
 const Address = asyncLoad(() => import('./address'), <Loading />)
+const AddressEdit = asyncLoad(() => import('./address-edit'), <Loading />)
+
 
 @connect(() => ({}), dispatch => bindActionCreators({
   globalUpdate,
@@ -49,6 +51,7 @@ export default () => (
       <Route path="/login" component={Login} />
       <Route path="/search-address" component={SearchAddress} />
       <Route path="/address" component={Address} />
+      <Route path="/address-edit" component={AddressEdit} />
     </Switch>
   </Fragment>
 )

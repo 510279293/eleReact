@@ -6,7 +6,7 @@ import Loading from 'components/loading'
 import SvgIcon from 'components/icon-svg'
 import AddressRow from '../common-components/address-row'
 import { getNearby, getGeolocation } from '../../api'
-import { styles } from 'ansi-colors'
+import styles from './index.less'
 import { homeUpdate } from '../../stores/home'
 // @connect(({ home }) => ({
 //   locationInfo: home.locationInfo,

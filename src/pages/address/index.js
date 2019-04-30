@@ -13,6 +13,10 @@ export default class Address extends React.Component {
   }
   goEdit = (val = false) => {
     console.log('dffffdfd')
+    this.props.history.push({
+      pathname: '/address-edit',
+      state: val,
+    })
   }
   render() {
     return (
