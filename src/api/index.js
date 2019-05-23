@@ -10,7 +10,7 @@ const position = new AMap.Geolocation({
 export const getGeolocation = () => {
   return new Promise((resolve, reject) => {
     position.getCurrentPosition((status, result) => {
-      if (status === 'complate') {
+      if (status === 'complete') {
         resolve({
           data: {
             latitude: result.position.lat,
@@ -33,3 +33,10 @@ export const mobileCaptchas = (params) => { return HttpUtils.post('/elm/captchas
 export const loginByMobile = (params) => { return HttpUtils.post('/elm/login_by_mobile', params) }
 export const getUserInfo = (params) => { return HttpUtils.post('/elm/users', params) }
 
+export const getAddress = (params) => { return HttpUtils.get('/elm/address', params) }
+export const delAddress = (params) => { return HttpUtils.get('/elm/del_address', params) }
+export const upAddress = (params) => { return HttpUtils.post('/elm/update_address', params) }
+export const addAddress = (params) => { return HttpUtils.post('/elm/add_address', params) }
+
+// 根据经纬度 关键词 获取地址
+export const getNearby = (params) => { return HttpUtils.get('/elm/search_nearby', params) }

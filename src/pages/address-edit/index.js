@@ -8,6 +8,7 @@ import asyncLoad from 'components/async-loade'
 import Loading from '../common-components/lazy-loading'
 import Toast from 'components/toast'
 import styles from './index.less'
+import { delAddress, upAddress, addAddress } from '../../api'
 const AddressNearby = asyncLoad(() => import('../address-nearby'), <Loading />)
 
 const Badge = ({text, select, handleClick}) => (
@@ -44,7 +45,17 @@ export default class AddressEdit extends React.Component{
       if(!info.address || !info.address_detail){
         return Toast.info('请输入位置,详细地址', 2)
       }
-      
+      const ajaxFun = info.id ? upAddress : addAddress
+      try{
+        Toast.loading('处理中...', 0)
+        const { data } = await ajaxFun(info)
+        Toast.hide()
+        if(data){
+          this.props.history.goBack()
+        }
+      }catch({err}){
+        Toast.info(err)
+      }
     }
 
     handleAddressClick = (obj) => {

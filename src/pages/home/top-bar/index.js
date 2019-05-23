@@ -18,12 +18,10 @@ const mapActionsToProps = dispatch => bindActionCreators({ homeUpdate }, dispatc
 export default class TopBar extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      address: '河南省杭州市',
-    }
   }
   render() {
     const { history } = this.props
+    const { address } = this.props.locationInfo
     const clsname = cls({
       [styles.header]: true,
     })
@@ -32,7 +30,7 @@ export default class TopBar extends Component {
       <div className={clsname}>
         <div className={styles.location} onClick={() => history.push('/search-address')}>
           <SvgIcon className={styles.icon} name="#location" />
-          <h1 className={styles.address}>{this.state.address ? this.state.address : '正在识别地址...'}</h1>
+          <h1 className={styles.address}>{address ? address : '正在识别地址...'}</h1>
           <SvgIcon className={styles.down} name="#triangle_down_fill" />
         </div>
         <div className={styles.search} onClick={() => history.push('/search-shop')}>

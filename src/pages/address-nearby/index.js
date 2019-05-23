@@ -1,18 +1,22 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import Toast from 'components/toast'
+import Scroll from 'components/scroll'
 import NavBar from '../common-components/nav-bar'
 import Loading from 'components/loading'
 import SvgIcon from 'components/icon-svg'
 import AddressRow from '../common-components/address-row'
+import NoData from '../common-components/no-data'
+import { debounce } from 'utils/utils'
 import { getNearby, getGeolocation } from '../../api'
 import styles from './index.less'
 import { homeUpdate } from '../../stores/home'
-// @connect(({ home }) => ({
-//   locationInfo: home.locationInfo,
-// }), dispatch => bindActionCreators({
-//   homeUpdate,
-// }, dispatch))
+@connect(({ home }) => ({
+  locationInfo: home.locationInfo,
+}), dispatch => bindActionCreators({
+  homeUpdate,
+}, dispatch))
 export default class AddressNearby extends Component {
   constructor(props) {
     super(props)
@@ -21,6 +25,11 @@ export default class AddressNearby extends Component {
       list: [],
     }
     console.log(props)
+    this.searchFn = debounce(this.search)
+  }
+
+  componentDidMount(){
+    this.search()
   }
 
   search = async (keyword = '') => {
@@ -35,7 +44,7 @@ export default class AddressNearby extends Component {
           locationInfo: data,
         })
       } catch ({ err }) {
-        return Toast.info()
+        return Toast.info(err)
       }
     }
     try {
@@ -50,6 +59,7 @@ export default class AddressNearby extends Component {
         list: data,
         loading: false,
       })
+      console.log(data)
     } catch ({ err }) {
       this.setState({
         loading: false,
@@ -88,7 +98,6 @@ export default class AddressNearby extends Component {
   render() {
     const { list, loading } = this.state
     const { history } = this.props
-    console.log(this.props)
     return (
       <div className={styles.address}>
         <NavBar title="搜索地址" iconLeft="#back" leftClick={() => history.goBack()} />
@@ -96,7 +105,7 @@ export default class AddressNearby extends Component {
           {
             loading ? <Loading style={{ marginTop: 20 }} /> :
             (
-              <div>
+              <Scroll dataSource={list}>
                 <div className={styles.search}>
                   <div className={styles.input}>
                     <SvgIcon name="#search" className={styles.icon} />
@@ -108,7 +117,7 @@ export default class AddressNearby extends Component {
                   list.length ? (
                     <div className={styles.container}>
                       {
-                        list.map((v) => {
+                        list.map(v => (
                           <AddressRow
                             data={v}
                             key={v.id}
@@ -121,16 +130,15 @@ export default class AddressNearby extends Component {
                               longitude: v.longitude,
                             })}
                           />
-                        })
+                        ))
                       }
                     </div>
-                  ) : null
+                  ) : <NoData />
                 }
-              </div>
+              </Scroll>
             )
           }
         </div>
-        address search
       </div>
     )
   }
